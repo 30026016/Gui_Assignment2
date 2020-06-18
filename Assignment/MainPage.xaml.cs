@@ -43,7 +43,9 @@ namespace Assignment
             {
                 Console.WriteLine(ex.Message);
             }
-            finally { 
+            finally 
+            {
+                
             }
         }
 
