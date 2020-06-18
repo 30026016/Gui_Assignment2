@@ -64,7 +64,7 @@ namespace Assignment
             _updateTimer.Start();
         }
 
-        private void SectionView_ArticleSelected(object sender, NewsViewModel e)
+        private void SectionView_NewsSelected(object sender, NewsViewModel e)
         {
             Frame.Navigate(typeof(NewsPage), e.Headline);
         }

@@ -105,12 +105,11 @@ Bulldogs: Aiden Tolman is again unavailable for selection as he is in the midst 
                 }
                 else
                 {
-                    return @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed nibh ac nisl porta ornare. Vivamus a mollis leo. Proin eu leo at justo aliquam porttitor id nec arcu. Aenean ornare ligula a orci vulputate, sit amet hendrerit leo commodo. Suspendisse interdum porta ante, sit amet tristique enim fringilla sed. Fusce pulvinar eget sem nec iaculis. In euismod malesuada sem eget dignissim. Nulla interdum vulputate mi vel tempor. Aliquam tempor efficitur mi at dictum. 
+                    return @"People living on the east coast are being told to stay out of the water after a 7.4 magnitude earthquake struck early this morning. There is no tsunami threat in the region, but the Civil Defence in Waikato has put out the warning still. 'Please remember that although there was no tsunami threat in the wee hours, the earthquake south of the Kermadec Islands this morning still could cause strong currents,' the notification read. 'So stay out of the water on the East Coast this morning.'
 
-Vestibulum sollicitudin arcu at elementum tempor. Sed suscipit luctus massa, et cursus arcu malesuada vitae. Donec venenatis elit ex, quis iaculis elit vehicula aliquam. Suspendisse sed purus nisl. Aliquam aliquet leo sed erat ultricies consequat. Aliquam ac pellentesque urna, id fringilla sapien. Fusce imperdiet nisl nec lectus placerat sagittis. Sed nibh ipsum, cursus at ultrices molestie, ornare id augue. Quisque augue tortor, rutrum et sodales vestibulum, elementum ut nunc. Nunc eu nunc a nisi laoreet laoreet. Nunc nec diam non eros tempor tristique. Maecenas a sollicitudin felis. In tortor nisi, bibendum non lectus id, malesuada tincidunt nibh. Ut consequat elit nulla, vitae maximus odio ornare a. 
+Those worried that the quake had triggered a tsunami were officially told there was no threat - about 50 minutes after the quake struck. A tsunami alert was never issued by the National Emergency Management Agency when the quake hit at 12.50am off the east coast of New Zealand. Please remember that although there was no tsunami threat in the wee hours, the earthquake south of the Kermadec Islands this morning still could cause strong currents so stay out of the water on the east coast this morning. It would be 47 minutes later when those living on that side of the country would know for sure that they were safe from a tsunami.
 
-Praesent placerat velit vel eleifend tristique. Sed vulputate aliquet risus, ac ultrices sapien volutpat in. Donec blandit congue dictum. In in sapien id augue elementum condimentum. Pellentesque maximus felis eu efficitur convallis. Vestibulum augue leo, elementum ac urna at, luctus finibus leo. Sed venenatis augue et laoreet vehicula. Nulla facilisi. Nulla eu mauris nec augue congue semper vel in ipsum. Aenean gravida tempus lobortis. Sed sodales ac lectus pellentesque tempor. Nulla ut ipsum sit amet magna euismod porttitor condimentum fringilla urna. Curabitur sit amet hendrerit metus. Proin gravida accumsan urna, ut porta est placerat efficitur. Nullam iaculis libero ex, ac accumsan tortor placerat at. 
-";
+A spokesman for NEMA told the Herald this morning that a notification was issued on its social media sites, including Twitter, that an assessment was being made to figure out whether or not a tsunami had been triggered. That notification appeared on the NEMA Twitter page at 1.07am. Another post saying 'there is no tsunami threat' appeared at 1.37am. Asked why it took so long for that to be established, the spokesman said it took time for scientists to analyse the situation to establish if a tsunami was coming or not. That is why the official advice has always been if an earthquake was 'long or strong - get gone', he said.";
                 }
 
                 
@@ -121,7 +120,7 @@ Praesent placerat velit vel eleifend tristique. Sed vulputate aliquet risus, ac 
         {
             _headline = new[]
                 {
-                    "Lorem Ipsum",
+                    "Earthquake",
                     "Covid-19",
                     "Trans-Tasman Air Start",
                     "New Features For Working People",

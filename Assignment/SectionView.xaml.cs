@@ -14,8 +14,6 @@ namespace Assignment
     {
         private UISettings _uiSettings;
 
-        // We will use the property changed handler to create a custom transition.
-        // See SectionView.xaml and SectionView.OnViewModelChanged.
         private static DependencyProperty s_viewModelProperty
             = DependencyProperty.Register(
                 "ViewModel",
@@ -42,12 +40,26 @@ namespace Assignment
             _uiSettings = new UISettings();
         }
 
+        /// <summary>
+        /// Rotation Effect
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var newSize = e.NewSize;
+            UpdateForSizeChanged(newSize.Width, newSize.Height);
+        }
+
+        /// <summary>
+        /// Rotation Effect based on new height and width
+        /// </summary>
+        /// <param name="newWidth"></param>
+        /// <param name="newHeight"></param>
         private void UpdateForSizeChanged(double newWidth, double newHeight)
         {
             try
             {
-                // The rotation creates a rectangular prism effect.
-                // The center of rotation should be at X = Width / 2 and Z = -Width / 2
                 var centerX = newWidth / 2.0;
                 RootTransform.CenterX = centerX;
                 NextContentTransform.CenterX = centerX;
@@ -56,25 +68,23 @@ namespace Assignment
                 RootTransform.CenterZ = centerZ;
                 NextContentTransform.CenterZ = centerZ;
 
-                // Clip to our left and right bounds so the effect doesn't get too crazy.
                 ClipGeometry.Rect = new Rect(0.0, -1024.0, newWidth, newHeight + 1024.0);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Result.Error(ex.Message);
             }
             finally
             {
-
+                Result.Ok();
             }
         }
 
-        private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            var newSize = e.NewSize;
-            UpdateForSizeChanged(newSize.Width, newSize.Height);
-        }
-
+        /// <summary>
+        /// Transition of story board of news section
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContentTransitionStoryboard_Completed(object sender, object e)
         {
             CurrentContentPresenter.Content = NextContentPresenter.Content;
@@ -88,7 +98,6 @@ namespace Assignment
                 NextContentPresenter.Content = newValue;
                 CurrentContentPresenter.Content = oldValue;
 
-                // Play content transition
                 VisualStateManager.GoToState(this, "ContentTransitionState", true);
             }
             else
@@ -102,14 +111,14 @@ namespace Assignment
             ((SectionView)o).OnViewModelChanged((FinalNewsViewModel)e.OldValue, (FinalNewsViewModel)e.NewValue);
         }
 
-        private void ArticleTapped(object sender, TappedRoutedEventArgs e)
+        private void NewsTapped(object sender, TappedRoutedEventArgs e)
         {
-            if (ArticleSelected != null)
+            if (NewsSelected != null)
             {
-                ArticleSelected(this, (NewsViewModel)((FrameworkElement)e.OriginalSource).DataContext);
+                NewsSelected(this, (NewsViewModel)((FrameworkElement)e.OriginalSource).DataContext);
             }
         }
 
-        public event TypedEventHandler<object, NewsViewModel> ArticleSelected;
+        public event TypedEventHandler<object, NewsViewModel> NewsSelected;
     }
 }

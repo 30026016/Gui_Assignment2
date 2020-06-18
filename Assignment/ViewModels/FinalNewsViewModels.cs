@@ -14,7 +14,7 @@ namespace Assignment.ViewModels
             private set
             {
                 _news0 = value;
-                NotifyPropertyChanged("HeroArticle0");
+                NotifyPropertyChanged("News0");
             }
         }
 
@@ -30,7 +30,7 @@ namespace Assignment.ViewModels
             private set
             {
                 _news1 = value;
-                NotifyPropertyChanged("HeroArticle1");
+                NotifyPropertyChanged("News1");
             }
         }
 

@@ -26,7 +26,7 @@
                     <VisualState.Setters>
                         <Setter Target="ProgressRing.IsActive" Value="False" />
                         <Setter Target="TextBlock0.Opacity" Value="1.0" />
-                        <Setter Target="ArticleImage.Opacity" Value="1.0" />
+                        <Setter Target="NewsImage.Opacity" Value="1.0" />
                         <Setter Target="TextBlock1.Opacity" Value="1.0" />
                     </VisualState.Setters>
                 </VisualState>
@@ -39,8 +39,6 @@
                                                            Storyboard.TargetProperty="IsActive">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="False" />
                             </ObjectAnimationUsingKeyFrames>
-
-                            <!-- Zoom & fade in the first block of text... -->
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock0"
                                                            Storyboard.TargetProperty="Opacity">
                                 <SplineDoubleKeyFrame KeySpline="0.2, 0.6, 0.3, 0.9" KeyTime="0:0:0.5"
@@ -52,23 +50,19 @@
                                 <SplineDoubleKeyFrame KeySpline="0.1, 0.9, 0.2, 1" KeyTime="0:0:0.5"
                                                       Value="0.0" />
                             </DoubleAnimationUsingKeyFrames>
-
-                            <!-- Then, zoom & fade in the image... -->
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ArticleImage"
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NewsImage"
                                                            Storyboard.TargetProperty="Opacity"
                                                            BeginTime="0:0:0.1">
                                 <SplineDoubleKeyFrame KeySpline="0.2, 0.6, 0.3, 0.9" KeyTime="0:0:0.6"
                                                       Value="1.0" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ArticleImageTransform"
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="NewsImageTransform"
                                                        Storyboard.TargetProperty="TranslateZ"
                                                        BeginTime="0:0:0.1">
                                 <DiscreteDoubleKeyFrame KeyTime="0" Value="-300.0" />
                                 <SplineDoubleKeyFrame KeySpline="0.1, 0.9, 0.2, 1" KeyTime="0:0:0.5"
                                                       Value="0.0" />
                             </DoubleAnimationUsingKeyFrames>
-
-                            <!-- Then, zoom & fade in the remaining text. -->
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TextBlock1"
                                                            Storyboard.TargetProperty="Opacity" 
                                                            BeginTime="0:0:0.2">
@@ -114,9 +108,9 @@
                                 </Paragraph>
                             </RichTextBlock>
                             <Image Width="165" Height="165" Margin="10" Source="{x:Bind News.ImageSource}"
-                                   x:Name="ArticleImage" Grid.Column="1" Opacity="0.0" Stretch="UniformToFill">
+                                   x:Name="NewsImage" Grid.Column="1" Opacity="0.0" Stretch="UniformToFill">
                                 <Image.Transform3D>
-                                    <CompositeTransform3D x:Name="ArticleImageTransform" />
+                                    <CompositeTransform3D x:Name="NewsImageTransform" />
                                 </Image.Transform3D>
                             </Image>
                         </Grid>

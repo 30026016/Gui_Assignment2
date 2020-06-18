@@ -18,18 +18,18 @@ namespace Assignment
         private DispatcherTimer _loadTimer;
         private UISettings _uiSettings;
 
-        private static DependencyProperty s_articleProperty =
-            DependencyProperty.Register("Article", typeof(NewsViewModel), typeof(NewsPage), new PropertyMetadata(null));
+        private static DependencyProperty s_newsProperty =
+            DependencyProperty.Register("News", typeof(NewsViewModel), typeof(NewsPage), new PropertyMetadata(null));
 
-        public static DependencyProperty ArticleProperty
+        public static DependencyProperty NewsProperty
         {
-            get { return s_articleProperty; }
+            get { return s_newsProperty; }
         }
 
         public NewsViewModel News
         {
-            get { return (NewsViewModel)GetValue(s_articleProperty); }
-            set { SetValue(s_articleProperty, value); }
+            get { return (NewsViewModel)GetValue(s_newsProperty); }
+            set { SetValue(s_newsProperty, value); }
         }
         public NewsPage()
         {
@@ -37,7 +37,6 @@ namespace Assignment
 
             VisualStateManager.GoToState(this, "ContentNotLoadedState", false);
 
-            // Simulate asynchronous loading of content
             _loadTimer = new DispatcherTimer();
             _loadTimer.Interval = TimeSpan.FromSeconds(0.55);
             _loadTimer.Tick += LoadTimer_Tick;
@@ -47,7 +46,6 @@ namespace Assignment
 
         private void LoadTimer_Tick(object sender, object e)
         {
-            // Play content entrance animation
             VisualStateManager.GoToState(this, "ContentLoadedState", _uiSettings.AnimationsEnabled);
         }
 
@@ -63,7 +61,7 @@ namespace Assignment
             _loadTimer.Start();
 
             SystemNavigationManager systemNavigationManager = SystemNavigationManager.GetForCurrentView();
-            systemNavigationManager.BackRequested += ArticlePage_BackRequested;
+            systemNavigationManager.BackRequested += NewsPage_BackRequested;
             systemNavigationManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
@@ -72,18 +70,13 @@ namespace Assignment
             base.OnNavigatedFrom(e);
 
             SystemNavigationManager systemNavigationManager = SystemNavigationManager.GetForCurrentView();
-            systemNavigationManager.BackRequested -= ArticlePage_BackRequested;
+            systemNavigationManager.BackRequested -= NewsPage_BackRequested;
             systemNavigationManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
-        private void ArticlePage_BackRequested(object sender, BackRequestedEventArgs e)
+        private void NewsPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
             e.Handled = true;
-            Frame.GoBack();
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
             Frame.GoBack();
         }
     }

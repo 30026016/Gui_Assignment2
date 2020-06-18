@@ -17,21 +17,14 @@
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="ContentTransitionStates">
                 <VisualState x:Name="ContentSteadyState" />
-
                 <VisualState x:Name="ContentTransitionState">
-                    <!-- Use this visual state to launch a 3D animation with our new content -->
                     <Storyboard x:Name="ContentTransitionStoryboard"
                                 Completed="ContentTransitionStoryboard_Completed">
-
-                        <!-- Make sure right panel is visible -->
                         <ObjectAnimationUsingKeyFrames
                             Storyboard.TargetName="NextContentRoot"
                             Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame Value="Visible" KeyTime="0" />
                         </ObjectAnimationUsingKeyFrames>
-
-                        <!-- Halfway through the animation, bring the right panel (NextContentRoot) to
-                             the front by swapping the Canvas.ZIndex of NextContentRoot and CurrentContentRoot -->
                         <ObjectAnimationUsingKeyFrames
                             Storyboard.TargetName="NextContentRoot"
                             Storyboard.TargetProperty="(Canvas.ZIndex)">
@@ -44,8 +37,6 @@
                             <DiscreteObjectKeyFrame Value="1" KeyTime="0" />
                             <DiscreteObjectKeyFrame Value="0" KeyTime="0:0:0.4" />
                         </ObjectAnimationUsingKeyFrames>
-
-                        <!-- Use a shadow effect to give an illusion of 3D-ness -->
                         <ColorAnimation
                             Storyboard.TargetName="NextContentShadowBrush"
                             Storyboard.TargetProperty="Color"
@@ -56,8 +47,6 @@
                             Storyboard.TargetProperty="Color"
                             Duration="0:0:0.8"
                             From="#00000000" To="#11000000" />
-
-                        <!-- Rotate 90* to the right -->
                         <DoubleAnimationUsingKeyFrames
                             Storyboard.TargetName="RootTransform"
                             Storyboard.TargetProperty="RotationY">
@@ -76,14 +65,13 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
                     <TextBlock Text="{x:Bind Headline}" Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <TextBlock Margin="0,20,0,0" Text="{x:Bind FullText}" Style="{ThemeResource BodyTextBlockStyle}"
                                TextTrimming="Clip" Grid.Row="1" />
                 </Grid>
             </DataTemplate>
 
-            <DataTemplate x:Key="StackedHeroArticlesTemplate" x:DataType="viewmodels:FinalNewsViewModel">
+            <DataTemplate x:Key="StackedNewsTemplate" x:DataType="viewmodels:FinalNewsViewModel">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -91,10 +79,10 @@
                     </Grid.RowDefinitions>
 
                     <ListViewItem ContentTemplate="{StaticResource FinalNewsTemplate}" BorderThickness="0.0"
-                                  Content="{x:Bind News0}" Tapped="ArticleTapped" />
+                                  Content="{x:Bind News0}" Tapped="NewsTapped" />
 
                     <ListViewItem Grid.Row="1" ContentTemplate="{StaticResource FinalNewsTemplate}"
-                                  Content="{x:Bind News1}" Tapped="ArticleTapped" />
+                                  Content="{x:Bind News1}" Tapped="NewsTapped" />
                 </Grid>
             </DataTemplate>
         </Grid.Resources>
@@ -105,10 +93,8 @@
 
         <Grid x:Name="CurrentContentRoot" Margin="0,0,0,10"
               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
             <ContentPresenter x:Name="CurrentContentPresenter"
-                              ContentTemplate="{StaticResource StackedHeroArticlesTemplate}" />
-
+                              ContentTemplate="{StaticResource StackedNewsTemplate}" />
             <Rectangle IsHitTestVisible="False">
                 <Rectangle.Fill>
                     <SolidColorBrush x:Name="CurrentContentShadowBrush" />
@@ -121,10 +107,8 @@
             <Grid.Transform3D>
                 <CompositeTransform3D x:Name="NextContentTransform" RotationY="270" />
             </Grid.Transform3D>
-
             <ContentPresenter x:Name="NextContentPresenter"
-                              ContentTemplate="{StaticResource StackedHeroArticlesTemplate}" />
-
+                              ContentTemplate="{StaticResource StackedNewsTemplate}" />
             <Rectangle Opacity="1.0" IsHitTestVisible="False">
                 <Rectangle.Fill>
                     <SolidColorBrush x:Name="NextContentShadowBrush" />

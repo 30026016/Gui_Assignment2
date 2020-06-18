@@ -38,7 +38,7 @@ namespace Assignment
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Result.Error(ex.Message);
             }
             finally
             {
@@ -105,11 +105,11 @@ namespace Assignment
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Result.Error(e.Message);
             }
             finally
             {
-
+                Result.Ok();
             }
         }
 
@@ -128,11 +128,11 @@ namespace Assignment
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Result.Error(e.Message);
             }
             finally
             {
-
+                Result.Ok();
             }
         }
     }

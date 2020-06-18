@@ -47,16 +47,12 @@
                     </Grid>
                 </StackPanel>
             </Grid>
-            
-
             <Grid Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" IsHitTestVisible="False" />
-
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-
                 <Border Grid.Row="1">
                     <Image Source="ms-appx:///Assets/AppLogo.jpg" 
                            Width="320" 

@@ -24,11 +24,10 @@
                 <Setter Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate>
-                            <local:SectionView ViewModel="{Binding}" ArticleSelected="SectionView_ArticleSelected" />
+                            <local:SectionView ViewModel="{Binding}" NewsSelected="SectionView_NewsSelected" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
-
                 <Setter Property="HeaderTemplate">
                     <Setter.Value>
                         <DataTemplate>
@@ -43,7 +42,6 @@
         </Grid.Resources>
 
         <Grid.Transform3D>
-            <!-- Use a global perspective for section effects. -->
             <PerspectiveTransform3D />
         </Grid.Transform3D>
 
@@ -52,7 +50,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="signIn" Grid.Column="1" Content="Welcome" Padding="5" BorderThickness="0" BorderBrush="Gray" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button x:Name="signIn" Background="Beige" Grid.Column="1" Content="Welcome" Padding="5" BorderThickness="0" BorderBrush="Gray" HorizontalAlignment="Center" VerticalAlignment="Top">
             </Button>
         </Grid>
         <Hub x:Name="HeadlinesHub" Orientation="Horizontal" Header="Latest News"
