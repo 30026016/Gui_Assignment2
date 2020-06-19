@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <Source>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</Source>
+    <SmallTileSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</SmallTileSource>
+    <MediumTileSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</MediumTileSource>
+    <WideTileSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</WideTileSource>
+    <LargeTileSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</LargeTileSource>
+    <AppIconSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</AppIconSource>
+    <SplashScreenSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</SplashScreenSource>
+    <PackageLogoSource>D:\Assignment_GUI\Assignment\Assignment\Assignment\Assets\news.jpg</PackageLogoSource>
+  </PropertyGroup>
+</Project>
